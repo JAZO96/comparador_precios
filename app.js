@@ -12,3 +12,12 @@ const tiendas = [
 
 const tiendasBarrio = tiendas.filter(tienda => tienda.tipo === "barrio");
 console.log(tiendasBarrio);
+
+const contenedor = document.getElementById("lista-barrio");
+
+tiendasBarrio.forEach(tienda => {
+    const item = document.createElement("li");
+
+    item.textContent = tienda.nombre;
+    contenedor.appendChild(item);
+})
