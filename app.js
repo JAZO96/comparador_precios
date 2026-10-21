@@ -10,14 +10,49 @@ const tiendas = [
     { id: 9, nombre: "Jumbo", tipo: "grande" }
 ]
 
-const tiendasBarrio = tiendas.filter(tienda => tienda.tipo === "barrio");
-console.log(tiendasBarrio);
+function mostrarTiendas(tipo) {
+    if (tipo === "barrio") {
+        const tiendasBarrio = tiendas.filter(tienda => tienda.tipo === "barrio");
+        console.log(tiendasBarrio);
 
-const contenedor = document.getElementById("lista-barrio");
+        const contenedor1 = document.getElementById("lista-barrio");
 
-tiendasBarrio.forEach(tienda => {
-    const item = document.createElement("li");
+        tiendasBarrio.forEach(tienda => {
+            const itemB = document.createElement("li");
 
-    item.textContent = tienda.nombre;
-    contenedor.appendChild(item);
-})
+            itemB.textContent = tienda.nombre;
+            contenedor1.appendChild(itemB);
+        })
+    }
+
+    if (tipo === "mediana") {
+        const tiendasMedianas = tiendas.filter(tienda => tienda.tipo === "mediana");
+        console.log(tiendasMedianas);
+
+        const contenedor2 = document.getElementById("lista-mediana");
+
+        tiendasMedianas.forEach(tienda => {
+            const itemM = document.createElement("li");
+
+            itemM.textContent = tienda.nombre;
+            contenedor2.appendChild(itemM)
+        })
+    }
+    if (tipo === "grande") {
+        const tiendasGrandes = tiendas.filter(tienda => tienda.tipo === "grande");
+        console.log(tiendasGrandes);
+
+        const contenedor3 = document.getElementById("lista-grande");
+
+        tiendasGrandes.forEach(tienda => {
+            const itemG = document.createElement("li");
+
+            itemG.textContent = tienda.nombre;
+            contenedor3.appendChild(itemG)
+        })
+    }
+}
+
+mostrarTiendas("barrio");
+mostrarTiendas("mediana");
+mostrarTiendas("grande");
