@@ -11,46 +11,17 @@ const tiendas = [
 ]
 
 function mostrarTiendas(tipo) {
-    if (tipo === "barrio") {
-        const tiendasBarrio = tiendas.filter(tienda => tienda.tipo === "barrio");
-        console.log(tiendasBarrio);
 
-        const contenedor1 = document.getElementById("lista-barrio");
+    const filtrados = tiendas.filter(tienda => tienda.tipo === tipo);
 
-        tiendasBarrio.forEach(tienda => {
-            const itemB = document.createElement("li");
+    const contenedor = document.getElementById(`lista-${tipo}`);
 
-            itemB.textContent = tienda.nombre;
-            contenedor1.appendChild(itemB);
-        })
-    }
+    filtrados.forEach(tienda => {
+        const item = document.createElement("li");
 
-    if (tipo === "mediana") {
-        const tiendasMedianas = tiendas.filter(tienda => tienda.tipo === "mediana");
-        console.log(tiendasMedianas);
-
-        const contenedor2 = document.getElementById("lista-mediana");
-
-        tiendasMedianas.forEach(tienda => {
-            const itemM = document.createElement("li");
-
-            itemM.textContent = tienda.nombre;
-            contenedor2.appendChild(itemM)
-        })
-    }
-    if (tipo === "grande") {
-        const tiendasGrandes = tiendas.filter(tienda => tienda.tipo === "grande");
-        console.log(tiendasGrandes);
-
-        const contenedor3 = document.getElementById("lista-grande");
-
-        tiendasGrandes.forEach(tienda => {
-            const itemG = document.createElement("li");
-
-            itemG.textContent = tienda.nombre;
-            contenedor3.appendChild(itemG)
-        })
-    }
+        item.textContent = tienda.nombre;
+        contenedor.appendChild(item);
+    })
 }
 
 mostrarTiendas("barrio");
